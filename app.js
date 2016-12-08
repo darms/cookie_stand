@@ -5,21 +5,23 @@ var allStores = [];
 // var storeTables = document.getElementsById
 // ('storeTable');
 
-function Store(locationName, minCustPerHour, maxCustPerHour, cookiesSoldPerHour) {
+function Store(locationName, minCustPerHour, maxCustPerHour, cookiesSoldPerCust) {
   this.locationName = locationName;
   this.minCustPerHour = minCustPerHour;
   this.maxCustPerHour = maxCustPerHour;
-  this.cookiesSoldPerHour= cookiesSoldPerHour;
+  this.cookiesSoldPerCust= cookiesSoldPerCust;
+  this.cookiesSoldPerHour = [];
   this.sum = 0;
-  this.cookiesSoldPerHour = function() {
+  this.calcCookiesSoldPerHour = function() {
     for(var i= 0; i < hours.length; i++){
       var randCustPerHour = Math.floor(((Math.random()*this.maxCustPerHour- this.minCustPerHour +1)) + this.minCustPerHour);
-      var cookiesPerHour = Math.ceil(randCustPerHour * this.avgCookiesPerHour);
+      console.log(randCustPerHour);
+      var cookiesPerHour = Math.ceil(randCustPerHour * this.cookiesSoldPerCust);
       this.cookiesSoldPerHour.push(cookiesPerHour);
       console.log('Ok!');
     }
-
-    this.cookiesSoldPerHour();
+  }
+    this.calcCookiesSoldPerHour();
     this.sumTotal = function() {
 
       for(var i= 0; i <this.cookiesSoldPerHour.length; i++) {
@@ -27,7 +29,7 @@ function Store(locationName, minCustPerHour, maxCustPerHour, cookiesSoldPerHour)
       }
     };
 
-  }
+
       allStores.push(this);
 }
 var store1= new Store('1st and Pike', 23, 65, 6.3);
