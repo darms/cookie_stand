@@ -68,6 +68,31 @@ function makeHeader(){
   displayTable.appendChild(trEl);
 }
 
+//making the footer
+function makeFooter() {
+  var trEl = document.createElement('tr');
+
+  //far left cell
+  var tdEl = document.createElement('td');
+  tdEl.textContent - 'all stores total';
+  trEl. appendChild(tdEl);
+
+  //hours cells
+  for (var i =0; i < hours.length; i++) {
+    var tdEl = document.createElement('td');
+    tdEl.textContent = 'sum of cells above';
+    trEl.appendChild(tdEl);
+  }
+
+  //Total cell
+  var tdEl = document.createElement('td');
+  tdEl.textContent= 'holder';
+  trEl.appendChild(tdEl);
+
+  displayTable.appendChild(trEl);
+
+
+}
 
 
 
