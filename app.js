@@ -1,6 +1,6 @@
 //pike and first object
 var displayTable = document.getElementById('displayTable');
-var hours = [ '6 am ', '7 am ', '08 am ', '09 am ', '10 am ', '11 am ', '12 am ', '1 pm  ', '2 pm ', '3 pm ', '4 pm ' , '5 pm ' , '6 pm ', '7 pm ', '8 pm '];
+var hours = [ '6 am ', '7 am ', '8 am ', '9 am ', '10 am ', '11 am ', '12 am ', '1 pm  ', '2 pm ', '3 pm ', '4 pm ' , '5 pm ' , '6 pm ', '7 pm '];
 var allStores = [];
 
 function Store(locationName, minCustPerHour, maxCustPerHour, cookiesSoldPerCust) {
@@ -9,6 +9,7 @@ function Store(locationName, minCustPerHour, maxCustPerHour, cookiesSoldPerCust)
   this.maxCustPerHour = maxCustPerHour;
   this.cookiesSoldPerCust= cookiesSoldPerCust;
   this.cookiesSoldPerHour = [];
+  this.sum = 0;
   allStores.push(this);
 
 
@@ -19,15 +20,17 @@ function Store(locationName, minCustPerHour, maxCustPerHour, cookiesSoldPerCust)
     trEl.appendChild(tdEl);
 
     //sales numbers
-    var runningTotal = 0;
     for (var i = 0; i < hours.length; i++){
-      var tdEl = document.createElement('td');
-      tdEl.textContent =this.cookiesSoldPerHour[i];
+      tdEl = document.createElement('td');
+      tdEl.textContent = this.cookiesSoldPerHour[i];
       trEl.appendChild(tdEl);
-      runningTotal += (this.cookiesSoldPerHour);
-      console.log('Alright!');
     }
-    displayTable.appendChild(trEl);
+
+      tdEl = document.createElement('td');
+      tdEl.textContent = this.sumTotal();
+      trEl.appendChild(tdEl);
+
+      displayTable.appendChild(trEl);
 
   }
   this.calcCookiesSoldPerHour = function() {
@@ -40,11 +43,13 @@ function Store(locationName, minCustPerHour, maxCustPerHour, cookiesSoldPerCust)
   }
 
   this.sumTotal = function() {
-    for(var i= 0; i <this.cookiesSoldPerHour.length; i++) {
-      this.sum += this.cookiesSoldPerHour[i];}
+    for(var i= 0; i <hours.length; i++) {
+      this.sum += this.cookiesSoldPerHour[i];
+    }
+      console.log('Lets do this!');
+      return this.sum;
   };
   this.calcCookiesSoldPerHour();
-  this.sumTotal();
 
 
  // console.log('Potato!');
@@ -66,16 +71,15 @@ function makeHeader(){
   var tdEl = document.createElement('td');
   tdEl.textContent = '';
   trEl.appendChild(tdEl);
-  displayTable.appendChild(trEl);
 
 // hours cells
   for (var i =0; i < hours.length; i++) {
     tdEl = document.createElement('td');
     tdEl.textContent = hours[i];
     trEl.appendChild(tdEl);
-    displayTable.appendChild(trEl);
-  }
 
+  }
+  tdEl = document.createElement('td');
   tdEl.textContent = 'Total';
   trEl.appendChild(tdEl);
   displayTable.appendChild(trEl);
