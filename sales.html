@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Josefin+Sans:600|Nunito:300" rel="stylesheet">
+    <title></title>
+  </head>
+  <header>
+    <h1>
+      Location Sales
+    </h1>
+  </header>
+  <body>
+    <form id="salesData">
+      <fieldset>
+        <legend> Create New Store Location</legend>
+        <label for="storeLocation">Store: </label>
+       <input name="storeLocation" type="text" placeholder="Store"/>
+     <label for="minCustomer">Min. Customers: </label>
+       <input name="minCustomer" type="text" placeholder="Min Customers Per Hour"/>
+     <label for="maxCustomer">Max. Customers: </label>
+       <input name="maxCustomer" type="text" placeholder="Max Customers Per Hour"/>
+     <label for ="avgCookiesPerCustomer">Avg. Cookies: </label>
+       <input name="avgCookiesPerCustomer" type="text" placeholder="Average Cookies Per Sale"/>
+     <button type="submit">Submit Data</button>
+   </fieldset>
+    </form>
+
+    <table id = "displayTable"></table>
+    <script src ='app.js'></script>
+  </body>
+  </html>
