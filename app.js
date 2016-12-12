@@ -26,11 +26,11 @@ function Store(locationName, minCustPerHour, maxCustPerHour, cookiesSoldPerCust)
       trEl.appendChild(tdEl);
     }
 
-      tdEl = document.createElement('td');
-      tdEl.textContent = this.sumTotal();
-      trEl.appendChild(tdEl);
+    tdEl = document.createElement('td');
+    tdEl.textContent = this.sumTotal();
+    trEl.appendChild(tdEl);
 
-      displayTable.appendChild(trEl);
+    displayTable.appendChild(trEl);
 
   }
   this.calcCookiesSoldPerHour = function() {
@@ -46,8 +46,8 @@ function Store(locationName, minCustPerHour, maxCustPerHour, cookiesSoldPerCust)
     for(var i= 0; i <hours.length; i++) {
       this.sum += this.cookiesSoldPerHour[i];
     }
-      console.log('Lets do this!');
-      return this.sum;
+    console.log('Lets do this!');
+    return this.sum;
   };
   this.calcCookiesSoldPerHour();
 
