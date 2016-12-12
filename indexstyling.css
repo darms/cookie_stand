@@ -15,15 +15,17 @@ h1,h2{
   margin-top: -100px;
   font-family: 'Berkshire Swash', cursive;
   font-size: 55px;
-  opacity: 1.0;
   color: #5e3219
+}
+#us{
+    font-family: 'Berkshire Swash', cursive;
+      color: #5e3219;
+      clear: both;
 }
 h1{
   margin-top: -55px;
 }
-i{
-  display: block;
-}
+
 i:hover{
   color: #5e3219;
 }
