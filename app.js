@@ -90,5 +90,19 @@ function showSales(){
     allStores[i].render();
   }
 }
+
+function nukeTable(){
+  displayTable.innerHTML = '';
+  console.log('Bombs Away!');
+}
+
+    nukeTable();
+    new Store( newLocationName, newMinCustPerHour, newMaxCustPerHour, newCookiesSoldPerCust);
+    makeHeader();
+    showSales();
+    event.target.locationName.value = null;
+    event.target.minCustPerHour.value = null;
+    event.target.maxCustPerHour.value = null;
+    event.target.cookiesSoldPerCust = null;
 makeHeader();
 showSales();
