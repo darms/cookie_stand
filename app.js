@@ -90,6 +90,24 @@ function showSales(){
     allStores[i].render();
   }
 }
+function handleNewStoreSubmit(event) {
+  event.preventDefault(); //prevents reload of data
+  // console.log('log of the event object', event);
+  // console.log('log of the event.target', event.target);
+  // console.log('log of the event.target.storeLocation', event.target.storeLocation);
+  // console.log('log of the event.target.storeLocation.value', event.target.storeLocation.value);
+  if (!event.target.storeLocation.value || !event.target.minCustomer.value || !event.target.maxCustomer.value || !event.target.avgCookiesPerCustomer.value) {
+    return alert('Fields cannot be empty!');
+  }
+  if (isNaN(parseInt(event.target.minCustomer.value)) ||
+    isNaN(parseInt(event.target.maxCustomer.value)) || isNaN(parseInt(event.target.avgCookiesPerCustomer.value))) {
+    return alert('Please enter number values for Max, Min and Average.')
+  }
+  var newStoreLocation = event.target.storeLocation.value;
+  var newMinCustomer = parseInt(event.target.minCustomer.value);
+  var newMaxCustomer = parseInt(event.target.maxCustomer.value);
+  var newAvgCookiesPerCustomer = parseInt(event.target.avgCookiesPerCustomer.value);
+
 
 function nukeTable(){
   displayTable.innerHTML = '';
