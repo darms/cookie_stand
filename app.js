@@ -90,5 +90,34 @@ function showSales(){
     allStores[i].render();
   }
 }
+function handleStoreSubmit(event) {
+  event.preventDefault();
+
+  if (!event.target.storeLocation.value || !event.target.minCustomer.value || !event.target.maxCustomer.value || !event.target.avgCookiesPerCustomer.value) {
+    return alert('Fields cannot be empty!');
+  }
+  if (isNaN(parseInt(event.target.minCustomer.value)) ||
+    isNaN(parseInt(event.target.maxCustomer.value)) || isNaN(parseInt(event.target.avgCookiesPerCustomer.value))) {
+    return alert('Please enter number values for Max, Min and Average.')
+  }
+  var newStoreLocation = event.target.storeLocation.value;
+  var newMinCustomer = parseInt(event.target.minCustomer.value);
+  var newMaxCustomer = parseInt(event.target.maxCustomer.value);
+  var newAvgCookiesPerCustomer = parseInt(event.target.avgCookiesPerCustomer.value);
+
+
+function nukeTable(){
+  displayTable.innerHTML = '';
+  console.log('Bombs Away!');
+}
+
+    nukeTable();
+    new Store( newLocationName, newMinCustPerHour, newMaxCustPerHour, newCookiesSoldPerCust);
+    makeHeader();
+    showSales();
+    event.target.locationName.value = null;
+    event.target.minCustPerHour.value = null;
+    event.target.maxCustPerHour.value = null;
+    event.target.cookiesSoldPerCust = null;
 makeHeader();
 showSales();
