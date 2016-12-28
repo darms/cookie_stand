@@ -90,34 +90,45 @@ function showSales(){
     allStores[i].render();
   }
 }
+
+var salesForm = document.getElementById('salesForm');
+//////////////event handler////////////////////////
 function handleStoreSubmit(event) {
+  ///////stop page from loading////////////////
   event.preventDefault();
 
-  if (!event.target.storeLocation.value || !event.target.minCustomer.value || !event.target.maxCustomer.value || !event.target.avgCookiesPerCustomer.value) {
-    return alert('Fields cannot be empty!');
+  //////////validation/////////////////////
+  if (( !event.target.storeLocation.value || !event.target.storeLocation.value ) && ( !event.target.min.value || !event.target.min.value ) && ( !event.target.max.value || !event.target.max.value ) && ( !event.target.avg.value || !event.target.avg.value )) {
+    return alert ('Fields cannot be empty!');
   }
-  if (isNaN(parseInt(event.target.minCustomer.value)) ||
-    isNaN(parseInt(event.target.maxCustomer.value)) || isNaN(parseInt(event.target.avgCookiesPerCustomer.value))) {
-    return alert('Please enter number values for Max, Min and Average.')
-  }
-  var newStoreLocation = event.target.storeLocation.value;
-  var newMinCustomer = parseInt(event.target.minCustomer.value);
-  var newMaxCustomer = parseInt(event.target.maxCustomer.value);
-  var newAvgCookiesPerCustomer = parseInt(event.target.avgCookiesPerCustomer.value);
 
 
-function nukeTable(){
+var newStoreLocation = event.target.storeLocation.value;
+var min = parseInt(event.target.min.value);
+var max = parseInt(event.target.max.value);
+var avg = parseInt(event.target.avg.value);
+var newStore = new Store(storeLocation, min, max, avg);
+
+
+function tableNuke() {
   displayTable.innerHTML = '';
-  console.log('Bombs Away!');
+}
+ if (event.target.button){
+
+  tableNuke();
+  new Store(storeLocation, min, max, avg);
+}
+  makeHeader();
+  showSales();
+  event.target.storeLocation.value = null;
+  event.target.min.value = null;
+  event.target.max.value = null;
+  event.target.avg.value = null;
 }
 
-    nukeTable();
-    new Store( newLocationName, newMinCustPerHour, newMaxCustPerHour, newCookiesSoldPerCust);
-    makeHeader();
-    showSales();
-    event.target.locationName.value = null;
-    event.target.minCustPerHour.value = null;
-    event.target.maxCustPerHour.value = null;
-    event.target.cookiesSoldPerCust = null;
+
 makeHeader();
 showSales();
+////////////event listener////////////////////////////
+
+button.addEventListener('submit', handleStoreSubmit);
