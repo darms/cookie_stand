@@ -1,11 +1,18 @@
 header,body{
   background-color: #efb92f;
 }
-
-td {
+#salesForm{
+    width: 80%;
+}
+button{
+  height: 25px;
+  width: 80px;
+}
+#salesForm, td {
   outline: 1px solid black;
   padding: 5px;
   border-style: black;
+
 }
 
 tr:hover{
