@@ -6,13 +6,27 @@
 <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Josefin+Sans:600|Nunito:300" rel="stylesheet">
     <title></title>
   </head>
+    <body>
   <header>
     <h1>
       Location Sales
     </h1>
   </header>
-  <body>
+  <form id= "salesForm">
+    <fieldset>
+      <legend> Create a New Store</legend>
+      <label for="storeLocation"> Store: </label>
+      <input name="storeLocation" type="text" placeholder="Location">
+      <label for="minimum"> Store: </label>
+      <input name="minimum" type="text" placeholder="Minimum">
+      <label for="maximum"> Store: </label>
+      <input name="maximum" type="text" placeholder="Maximum">
+      <label for="average"> Store: </label>
+      <input name="average" type="text" placeholder="Average">
+      <button id="submitData"> Submit </submit>
 
+</fieldset>
+</form>
     <table id = "displayTable"></table>
     <script src ='app.js'></script>
   </body>
