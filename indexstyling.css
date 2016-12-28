@@ -1,13 +1,10 @@
-#fishy{
-  opacity: 0.5;
-  height: 120px;
-  width: 300px;
 
+header{
+margin-top: 20px;
+height: 300px;
+  text-align: center;
 }
 
-*{
-    text-align: center;
-}
 h4,h5{
   font-family: 'Nunito', sans-serif;
   line-height: 10px;
@@ -21,12 +18,16 @@ h4,h5{
 h2{
     font-family: 'Berkshire Swash', cursive;
       color: #5e3219;
-
+      font-size: 40px;
 }
-
-
-i:hover{
-  color: #5e3219;
+#frosted{
+  opacity: 0.5;
+}
+#bigFish{
+  height: 2 00px;
+  width: 380px;
+  float: left;
+  clear: both;
 }
 
 dl{
@@ -34,13 +35,44 @@ font-family:'Josefin Sans', sans-serif;
 font-size: 24px;
 text-align: center;
 }
+.info{
+  margin-top: 355px;
+}
 
-#cookies{
-  margin-top: -30px;
-  height: 320px;
-  width: 450px;
+#family{
+  float: left;
+  height: 160px;
+  width: 280px;
+}
+#shirt{
+  clear: both;
+  float: left;
+  height: 160px;
+  width: 160px;
+}
+#cutter{
+  float: right;
+  height: 160px;
+  width: 140px;
+}
+body{
+    background-color: #efb92f;
 }
 p{
 font-family: 'Nunito', sans-serif;
-margin-top: -25px;
+margin-top: 35px;
+}
+
+i:hover{
+  color: #5e3219;
+}
+ul{
+  text-decoration: none;
+}
+footer{
+  clear: both;
+  margin-bottom: 10px;
+  background-image: url("assets/fish.jpg");
+  height: 180px;
+  width: 100%;
 }
