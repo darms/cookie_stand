@@ -99,16 +99,26 @@ function handleStoreSubmit(event) {
   event.preventDefault();
 
   //////////validation/////////////////////
-  if ( !event.target.storeLocation.value || !event.target.min.value || !event.target.max.value || !event.target.avg.value ) {
-    return alert ('Fields cannot be empty!');
+  ///Entire form is empty
+  if (!event.target.storeLocation.value || !event.target.min.value || !event.target.max.value || !event.target.avg.value) {
+     alert('Fields cannot be empty!');
   }
+  ////if a single entry is empty
+  if (()!event.target.storeLocation.value || !event.target.min.value || !event.target.max.value || !event.target.avg.value)) {
+     alert('Fields cannot be empty!');
+  }
+  //// if a number is entered for a store name
+  ///if a letter is entered instead of a number
 
+  // if ( isNan(parseInt(event.target.min.value)) || isNan(parseInt(event.target.min.value)) || isNan(parseInt(event.target.avg.value))) {
+  //   alert('Please enter in numbers only for Min, Max & Avg.');
+  // }
 
 var storeLocation = event.target.storeLocation.value;
-var min = parseInt(event.target.min.value);
-var max = parseInt(event.target.max.value);
-var avg = parseInt(event.target.avg.value);
-var newStore = new Store(storeLocation, min, max, avg);
+var newMin = parseInt(event.target.min.value);
+var newMax = parseInt(event.target.max.value);
+var newAvg = parseInt(event.target.avg.value);
+var newStore = new Store(storeLocation, newMin, newMax, newAvg);
 
 
 
