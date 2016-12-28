@@ -37,7 +37,7 @@ function Store(locationName, minCustPerHour, maxCustPerHour, cookiesSoldPerCust)
   this.calcCookiesSoldPerHour = function() {
     for(var i= 0; i < hours.length; i++){
       var randCustPerHour = Math.floor(((Math.random()*this.maxCustPerHour- this.minCustPerHour +1)) + this.minCustPerHour);
-      console.log(randCustPerHour);
+
       var cookiesPerHour = Math.ceil(randCustPerHour * this.cookiesSoldPerCust);
       this.cookiesSoldPerHour.push(cookiesPerHour);
     }
@@ -47,13 +47,10 @@ function Store(locationName, minCustPerHour, maxCustPerHour, cookiesSoldPerCust)
     for(var i= 0; i <hours.length; i++) {
       this.sum += this.cookiesSoldPerHour[i];
     }
-    console.log('Lets do this!');
     return this.sum;
   };
   this.calcCookiesSoldPerHour();
 
-
- // console.log('Potato!');
 }
 new Store('1st and Pike', 23, 65, 6.3);
 new Store('SeaTac Airport', 3, 24, 1.2);
@@ -101,12 +98,10 @@ function handleStoreSubmit(event) {
   //////////validation/////////////////////
   ///Entire form is empty
   if (!event.target.storeLocation.value || !event.target.min.value || !event.target.max.value || !event.target.avg.value) {
-     alert('Fields cannot be empty!');
+     alert('Please check that all fields are filled in.');
   }
-  ////if a single entry is empty
-  if (()!event.target.storeLocation.value || !event.target.min.value || !event.target.max.value || !event.target.avg.value)) {
-     alert('Fields cannot be empty!');
-  }
+
+
   //// if a number is entered for a store name
   ///if a letter is entered instead of a number
 
@@ -115,24 +110,25 @@ function handleStoreSubmit(event) {
   // }
 
 var storeLocation = event.target.storeLocation.value;
-var newMin = parseInt(event.target.min.value);
-var newMax = parseInt(event.target.max.value);
-var newAvg = parseInt(event.target.avg.value);
-var newStore = new Store(storeLocation, newMin, newMax, newAvg);
+var newMinCustPerHour = parseInt(event.target.minCustPerHour.value);
+var newMaxCustPerHour = parseInt(event.target.maxCustPerHour.value);
+var newCookiesSoldPerHour = parseInt(event.target.cookiesSoldPerHour.value);
+var newStore = new Store(storeLocation, newMinCustPerHour, newMaxCustPerHour, newCookiesSoldPerHour);
 
 
 
  if (event.target.button){
-    new Store(storeLocation, min, max, avg);
+    new Store(storeLocation, minCustPerHour, maxCustPerHour, cookiesSoldPerHour);
     displayTable.innerHTML = '';
   }
 
   makeHeader();
   showSales();
+
   event.target.newStoreLocation.value = null;
-  event.target.min.value = null;
-  event.target.max.value = null;
-  event.target.avg.value = null;
+  event.target.minCustPerHour.value = null;
+  event.target.maxCustPerHour.value = null;
+  event.target.cookiesSoldPerHour.value = null;
 }
 
 
