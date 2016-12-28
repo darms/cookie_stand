@@ -1,6 +1,6 @@
 //global variables
 var displayTable = document.getElementById('displayTable');
-var salesForm = document.getElementById('salesForm');
+
 var hours = [ '6am ', '7am ', '8am ', '9am ', '10am ', '11am ', '12am ', '1pm  ', '2pm ', '3pm ', '4pm ' , '5pm ' , '6pm ', '7pm '];
 var allStores = [];
 
@@ -60,9 +60,7 @@ new Store('Alki', 2, 16, 4.6);
 
 //FUNCTION DECLARATIONS
 
-// this.render = function() {
-//     var trEl = document.createElement('tr');
-
+/////////////////////////////////////////////////////////////
 function makeHeader(){
   var trEl = document.createElement('tr');
 //empty cell
@@ -82,6 +80,7 @@ function makeHeader(){
   trEl.appendChild(tdEl);
   displayTable.appendChild(trEl);
 }
+/////////////////////////////////////////////////////////////////
 
 function showSales(){
   for ( var i = 0; i < allStores.length; i++) {
@@ -90,43 +89,34 @@ function showSales(){
 }
 
 
+var sForm = document.getElementById('salesForm');
+var clearTable = document.getElementById('displayTable');
 //////////////event handler////////////////////////
 function handleStoreSubmit(event) {
   ///////stop page from loading////////////////
-  event.preventDefault();
-
-  //////////validation/////////////////////
-  ///Entire form is empty
-  if (!event.target.storeLocation.value || !event.target.minCust.value || !event.target.maxCust.value || !event.target.avgCookies.value) {
-     alert('Please check that all fields are filled in.');
-  }
-
-
-var newStoreLocation = event.target.storeLocation.value;
-var newMinCust = parseInt(event.target.minCust.value);
-var newMaxCust = parseInt(event.target.maxCust.value);
-var newAvgCookies = parseInt(event.target.avgCookies.value);
-var newStore = new Store(newStoreLocation, newMinCust, newMaxCust, newAvgCookies);
-
-
-
- if (event.target.button){
-    new Store(storeLocation, minCustPerHour, maxCust, avgCookies);
-    displayTable.innerHTML = '';
-  }
-
-  makeHeader();
-  showSales();
-
-  event.target.newStoreLocation.value = null;
-  event.target.minCust.value = null;
-  event.target.maxCust.value = null;
-  event.target.avgCookies.value = null;
+  clearTable.innerHTML = '';
+event.preventDefault();
+if (!event.target.storeLocation.value || !event.target.minCust.value || !event.target.maxCust.value || !event.target.avgCookies.value) {
+   alert('Please check that all fields are filled in.');
 }
 
+   new Store(event.target.storeLocation.value, event.target.minCust.value, event.target.maxCust.value, event.target.avgCookies.value);
 
-makeHeader();
-showSales();
-////////////event listener////////////////////////////
+     event.target.storeLocation.value = null;
+     event.target.minCust.value = null;
+     event.target.maxCust.value = null;
+     event.target.avgCookies.value = null;
+
+   theMaker();
+}
 
 salesForm.addEventListener('submit', handleStoreSubmit);
+
+function theMaker() {
+  makeHeader();
+  showSales();
+}
+
+theMaker();
+
+////////////event listener////////////////////////////
