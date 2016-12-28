@@ -1,5 +1,6 @@
-//pike and first object
+//global variables
 var displayTable = document.getElementById('displayTable');
+var salesForm = document.getElementById('salesForm');
 var hours = [ '6am ', '7am ', '8am ', '9am ', '10am ', '11am ', '12am ', '1pm  ', '2pm ', '3pm ', '4pm ' , '5pm ' , '6pm ', '7pm '];
 var allStores = [];
 
@@ -91,36 +92,34 @@ function showSales(){
   }
 }
 
-var salesForm = document.getElementById('salesForm');
+
 //////////////event handler////////////////////////
 function handleStoreSubmit(event) {
   ///////stop page from loading////////////////
   event.preventDefault();
 
   //////////validation/////////////////////
-  if (( !event.target.storeLocation.value || !event.target.storeLocation.value ) && ( !event.target.min.value || !event.target.min.value ) && ( !event.target.max.value || !event.target.max.value ) && ( !event.target.avg.value || !event.target.avg.value )) {
+  if ( !event.target.storeLocation.value || !event.target.min.value || !event.target.max.value || !event.target.avg.value ) {
     return alert ('Fields cannot be empty!');
   }
 
 
-var newStoreLocation = event.target.storeLocation.value;
+var storeLocation = event.target.storeLocation.value;
 var min = parseInt(event.target.min.value);
 var max = parseInt(event.target.max.value);
 var avg = parseInt(event.target.avg.value);
 var newStore = new Store(storeLocation, min, max, avg);
 
 
-function tableNuke() {
-  displayTable.innerHTML = '';
-}
- if (event.target.button){
 
-  tableNuke();
-  new Store(storeLocation, min, max, avg);
-}
+ if (event.target.button){
+    new Store(storeLocation, min, max, avg);
+    displayTable.innerHTML = '';
+  }
+
   makeHeader();
   showSales();
-  event.target.storeLocation.value = null;
+  event.target.newStoreLocation.value = null;
   event.target.min.value = null;
   event.target.max.value = null;
   event.target.avg.value = null;
@@ -131,4 +130,4 @@ makeHeader();
 showSales();
 ////////////event listener////////////////////////////
 
-button.addEventListener('submit', handleStoreSubmit);
+salesForm.addEventListener('submit', handleStoreSubmit);
