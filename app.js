@@ -1,5 +1,6 @@
 //global variables
 var displayTable = document.getElementById('displayTable');
+var salesForm = document.getElementById('salesForm');
 
 var hours = [ '6am ', '7am ', '8am ', '9am ', '10am ', '11am ', '12am ', '1pm  ', '2pm ', '3pm ', '4pm ' , '5pm ' , '6pm ', '7pm '];
 var allStores = [];
@@ -89,25 +90,25 @@ function showSales(){
 }
 
 
-var sForm = document.getElementById('salesForm');
+
 var clearTable = document.getElementById('displayTable');
 //////////////event handler////////////////////////
 function handleStoreSubmit(event) {
-  ///////stop page from loading////////////////
+
   clearTable.innerHTML = '';
-event.preventDefault();
-if (!event.target.storeLocation.value || !event.target.minCust.value || !event.target.maxCust.value || !event.target.avgCookies.value) {
-   alert('Please check that all fields are filled in.');
-}
+  event.preventDefault();
+  if (!event.target.storeLocation.value || !event.target.minCust.value || !event.target.maxCust.value || !event.target.avgCookies.value) {
+    alert('Please check that all fields are filled in.');
+  }
 
-   new Store(event.target.storeLocation.value, event.target.minCust.value, event.target.maxCust.value, event.target.avgCookies.value);
+  new Store(event.target.storeLocation.value, event.target.minCust.value, event.target.maxCust.value, event.target.avgCookies.value);
 
-     event.target.storeLocation.value = null;
-     event.target.minCust.value = null;
-     event.target.maxCust.value = null;
-     event.target.avgCookies.value = null;
+  event.target.storeLocation.value = null;
+  event.target.minCust.value = null;
+  event.target.maxCust.value = null;
+  event.target.avgCookies.value = null;
 
-   theMaker();
+  theMaker();
 }
 
 salesForm.addEventListener('submit', handleStoreSubmit);
