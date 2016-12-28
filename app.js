@@ -97,28 +97,21 @@ function handleStoreSubmit(event) {
 
   //////////validation/////////////////////
   ///Entire form is empty
-  if (!event.target.storeLocation.value || !event.target.min.value || !event.target.max.value || !event.target.avg.value) {
+  if (!event.target.storeLocation.value || !event.target.minCust.value || !event.target.maxCust.value || !event.target.avgCookies.value) {
      alert('Please check that all fields are filled in.');
   }
 
 
-  //// if a number is entered for a store name
-  ///if a letter is entered instead of a number
-
-  // if ( isNan(parseInt(event.target.min.value)) || isNan(parseInt(event.target.min.value)) || isNan(parseInt(event.target.avg.value))) {
-  //   alert('Please enter in numbers only for Min, Max & Avg.');
-  // }
-
-var storeLocation = event.target.storeLocation.value;
-var newMinCustPerHour = parseInt(event.target.minCustPerHour.value);
-var newMaxCustPerHour = parseInt(event.target.maxCustPerHour.value);
-var newCookiesSoldPerHour = parseInt(event.target.cookiesSoldPerHour.value);
-var newStore = new Store(storeLocation, newMinCustPerHour, newMaxCustPerHour, newCookiesSoldPerHour);
+var newStoreLocation = event.target.storeLocation.value;
+var newMinCust = parseInt(event.target.minCust.value);
+var newMaxCust = parseInt(event.target.maxCust.value);
+var newAvgCookies = parseInt(event.target.avgCookies.value);
+var newStore = new Store(newStoreLocation, newMinCust, newMaxCust, newAvgCookies);
 
 
 
  if (event.target.button){
-    new Store(storeLocation, minCustPerHour, maxCustPerHour, cookiesSoldPerHour);
+    new Store(storeLocation, minCustPerHour, maxCust, avgCookies);
     displayTable.innerHTML = '';
   }
 
@@ -126,9 +119,9 @@ var newStore = new Store(storeLocation, newMinCustPerHour, newMaxCustPerHour, ne
   showSales();
 
   event.target.newStoreLocation.value = null;
-  event.target.minCustPerHour.value = null;
-  event.target.maxCustPerHour.value = null;
-  event.target.cookiesSoldPerHour.value = null;
+  event.target.minCust.value = null;
+  event.target.maxCust.value = null;
+  event.target.avgCookies.value = null;
 }
 
 
